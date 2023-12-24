@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    p{
+        display: inline-block;
+    }
+
+    body{
+      background-image: url(bgfinals.jpg);
+      background-position: center ;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100vh;
+    }
+
+    h1{
+      padding-bottom: 25px;
+    }
+
+    .motherofall{
+      display: inline-block;
+      max-width: 50%;
+      height: 250px;
+      padding: 40px;
+      padding-bottom: 250px;
+      margin-top: 10%;
+      background: rgba( 155, 44, 255, 0.65 );
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+      backdrop-filter: blur( 4.5px );
+      -webkit-backdrop-filter: blur( 4.5px );
+      border-radius: 10px;
+      border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+
+    .motherfirst{
+      max-width: 100%;
+      display: flex;
+      width: 440px;
+      background: rgba( 191, 123, 255, 0.65 );
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+      backdrop-filter: blur( 5px );
+      -webkit-backdrop-filter: blur( 5px );
+      border-radius: 10px;
+    }
+
+    .mothersecond{
+      display: block;
+      max-width: 100%;
+      width: 440px;
+      margin-top: 30px;
+      background: rgba( 191, 123, 255, 0.65 );
+      box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+      backdrop-filter: blur( 5px );
+      -webkit-backdrop-filter: blur( 5px );
+      border-radius: 10px;
+    }
+
+    .inputs{
+      display: inline-block;
+      margin-left: 10px;
+      margin-top: 20px;
+      max-width: 100%;
+    }
+
+    .inputone{
+      margin-bottom: 6%;
+    }    
+    
+    .inputtwo{
+      margin-bottom: 6%;
+    }
+
+    .buttonplace{
+      display: flex;
+      justify-content: center;
+      justify-content: space-around;
+      width: 155px;
+      max-width: 80%;
+      align-items: center;
+    }
+
+    .buttonone{
+      width: 80%;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      background-color: hsl(277, 100%, 63%);
+      max-width: 100%;
+    }
+
+    .result{
+        display: inline-block;
+    }
+
+    </style>
+
+</head>
+<body>
+    <center>
+        <div class="motherofall">
+
+            <h1>Prime number finder</h1>
+
+            <div class="motherfirst">
+              <div class="inputs">
+                  <div class="inputone">
+                      <label for="number">starting number</label>
+                      <input type="number" id="startNum">
+                  </div>
+
+                  <div class="inputtwo">
+                      <label for="number">ending number</label>
+                      <input type="number" id="endNum">
+                  </div>
+              </div>
+
+
+              <div class="buttonplace">
+                  <button class="buttonone" id="processButton" onclick="primeFinder()">Process...</button>
+              </div>
+            </div>
+
+            <div class="mothersecond">
+              <h2 class="result" id="res">The prime numbers between <p id="lowerN">(starting number)</p> and <p id="higherN">(ending number)</p> are:</h2>
+            </div>
+        </div>
+    </center>
+
+    <script>
+    function primeFinder(){
+    // program to print prime numbers between the two numbers
+
+    // take input from the user
+    let lowerNumber = parseInt(document.getElementById("startNum").value);
+    let higherNumber = parseInt(document.getElementById("endNum").value);
+
+    let printer = document.getElementById("res");
+    
+    document.getElementById("lowerN").innerHTML = lowerNumber; 
+    document.getElementById("higherN").innerHTML= higherNumber;
+
+    // looping from lowerNumber to higherNumber
+    for (let i = lowerNumber; i <= higherNumber; i++) {
+        let flag = 0;
+
+    // looping through 2 to user input number
+    for (let j = 2; j < i; j++) {
+        if (i % j == 0) {
+            flag = 1;
+            break;
+        }
+    }
+
+    // if number greater than 1 and not divisible by other numbers
+    if (i > 1 && flag == 0) {
+        printer.innerHTML += ` ${i} `;
+    }
+}
+            
+        }
+    </script>
+</body>
+</html>
+
+
